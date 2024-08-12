@@ -9,7 +9,7 @@
   "publisher": "Fortinet",
   "icon_small_name": "small_icon.png",
   "icon_large_name": "large_icon.png",
-  "help_online": "",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-fastly-next-gen-waf/blob/release/1.0.0/docs/FastlyNext-GenWAFDoc.md",
   "configuration": {
     "fields": [
       {
@@ -20,8 +20,8 @@
         "type": "text",
         "name": "server_url",
         "value": "https://dashboard.signalsciences.net",
-        "description": "Specify the URL of the Fastly Next-Gen WAF server to connect and perform automated operations.",
-        "tooltip": "Specify the URL of the Fastly Next-Gen WAF server to connect and perform automated operations. For example, https://dashboard.signalsciences.net"
+        "description": "Specify the URL of the Fastly Next-Gen WAF server to connect and perform automated operations. For example, https://dashboard.signalsciences.net",
+        "tooltip": "Specify the URL of the Fastly Next-Gen WAF server to connect and perform automated operations."
       },
       {
         "title": "Email ID",
