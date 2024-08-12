@@ -342,7 +342,7 @@
             }
           ],
           "triggerLimit": null,
-          "description": "Adds an IP address to the site\u2019s block list for the specified corporation.",
+          "description": "Adds an IP address to the site's block list for the specified corporation.",
           "name": "Add IP Address to Block List",
           "tag": "#Fastly Next-Gen WAF",
           "recordTags": [
@@ -535,7 +535,7 @@
             {
               "uuid": "cd141075-1068-46e8-b8af-3ea465c122f4",
               "@type": "WorkflowStep",
-              "name": "Get Site List By ID",
+              "name": "Get Site List Details",
               "description": null,
               "status": null,
               "arguments": {
@@ -549,7 +549,7 @@
                 "version": "1.0.0",
                 "connector": "fastly-next-gen-waf",
                 "operation": "get_site_list_by_id",
-                "operationTitle": "Get Site List By ID"
+                "operationTitle": "Get Site List Details"
               },
               "left": "188",
               "top": "120",
@@ -557,8 +557,8 @@
             }
           ],
           "triggerLimit": null,
-          "description": "Retrieves the details of a site\u2019s list based on the specified List ID.",
-          "name": "Get Site List By ID",
+          "description": "Retrieves the details of a site's list based on the specified List ID.",
+          "name": "Get Site List Details",
           "tag": "#Fastly Next-Gen WAF",
           "recordTags": [
             "Fastly",
@@ -576,7 +576,7 @@
               "@type": "WorkflowRoute",
               "label": null,
               "isExecuted": false,
-              "name": "Start-> Get Site List By ID",
+              "name": "Start-> Get Site List Details",
               "sourceStep": "/api/3/workflow_steps/6e363e46-da0f-4e24-8482-594ddb5357d1",
               "targetStep": "/api/3/workflow_steps/cd141075-1068-46e8-b8af-3ea465c122f4"
             }

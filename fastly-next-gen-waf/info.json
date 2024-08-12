@@ -256,7 +256,7 @@
     {
       "operation": "add_ip_to_block_list",
       "title": "Add IP Address to Block List",
-      "description": "Adds an IP address to the site\u2019s block list for the specified corporation.",
+      "description": "Adds an IP address to the site's block list for the specified corporation.",
       "category": "investigation",
       "annotation": "add_ip_to_block_list",
       "enabled": true,
@@ -411,8 +411,8 @@
     },
     {
       "operation": "get_site_list_by_id",
-      "title": "Get Site List By ID",
-      "description": "Retrieves the details of a site\u2019s list based on the specified List ID.",
+      "title": "Get Site List Details",
+      "description": "Retrieves the details of a site's list based on the specified List ID.",
       "category": "investigation",
       "annotation": "get_site_list_by_id",
       "enabled": true,
