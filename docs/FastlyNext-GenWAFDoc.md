@@ -29,7 +29,7 @@ For the procedure to configure a connector, click [here](https://docs.fortinet.c
 </td>
 </tr><tr><td>Email ID</td><td>Specify the email ID of the user accessing the endpoint to connect and perform automated operations.
 </td>
-</tr><tr><td>Access Token</td><td>Specify the API key to access the endpoint to connect and perform automated operations.
+</tr><tr><td>Access Token</td><td>Specify the API token to access the endpoint to connect and perform automated operations.
 </td>
 </tr><tr><td>Verify SSL</td><td>Specifies whether the SSL certificate for the server is to be verified or not. <br/>By default, this option is set to True.</td></tr>
 </tbody></table>

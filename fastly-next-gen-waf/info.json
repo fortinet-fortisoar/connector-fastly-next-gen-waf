@@ -37,8 +37,8 @@
         "title": "Access Token",
         "type": "password",
         "name": "api_key",
-        "description": "Specify the API key to access the endpoint to connect and perform automated operations.",
-        "tooltip": "Specify the API key to access the endpoint to connect and perform automated operations.",
+        "description": "Specify the API token to access the endpoint to connect and perform automated operations.",
+        "tooltip": "Specify the API token to access the endpoint to connect and perform automated operations.",
         "required": true,
         "visible": true,
         "editable": true
