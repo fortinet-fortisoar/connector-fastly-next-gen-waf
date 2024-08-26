@@ -1,0 +1,1134 @@
+{
+  "name": "fastly-next-gen-waf",
+  "label": "Fastly Next-Gen WAF",
+  "version": "1.0.0",
+  "category": "Firewall and Network Protection",
+  "description": "Fastly Next-Gen WAF offers advanced web application protection with automated security measures, real-time monitoring, and rapid incident response. It provides robust defense by managing security policies, detecting threats, and enforcing rule sets to protect web applications.",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "publisher": "Fortinet",
+  "icon_small_name": "small_icon.png",
+  "icon_large_name": "large_icon.png",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-fastly-next-gen-waf/blob/release/1.0.0/docs/FastlyNext-GenWAFDoc.md",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "server_url",
+        "value": "https://dashboard.signalsciences.net",
+        "description": "Specify the URL of the Fastly Next-Gen WAF server to connect and perform automated operations. For example, https://dashboard.signalsciences.net",
+        "tooltip": "Specify the URL of the Fastly Next-Gen WAF server to connect and perform automated operations."
+      },
+      {
+        "title": "Email ID",
+        "type": "email",
+        "name": "email_id",
+        "description": "Specify the email ID of the user accessing the endpoint to connect and perform automated operations.",
+        "tooltip": "Specify the email ID of the user accessing the endpoint to connect and perform automated operations.",
+        "required": true,
+        "visible": true,
+        "editable": true
+      },
+      {
+        "title": "Access Token",
+        "type": "password",
+        "name": "api_key",
+        "description": "Specify the API token to access the endpoint to connect and perform automated operations.",
+        "tooltip": "Specify the API token to access the endpoint to connect and perform automated operations.",
+        "required": true,
+        "visible": true,
+        "editable": true
+      },
+      {
+        "title": "Verify SSL",
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "tooltip": "Select this option to verify the SSL certificate for the server.",
+        "description": "Select this option to verify the SSL certificate for the server. By default, this option is enabled.",
+        "required": false,
+        "visible": true,
+        "editable": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_site_allow_list",
+      "title": "Get Site Allow List",
+      "description": "Retrieves the allow list of IP addresses for the specified site and corporation.",
+      "category": "investigation",
+      "annotation": "get_site_allow_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name whose site's allow list is to be retrieved.",
+          "tooltip": "Specify the corporation name whose site's allow list is to be retrieved.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name whose allow list is to be retrieved.",
+          "tooltip": "Specify the site name whose allow list is to be retrieved.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "data": [
+          {
+            "id": "",
+            "source": "",
+            "expires": "",
+            "note": "",
+            "createdBy": "",
+            "created": ""
+          }
+        ]
+      }
+    },
+    {
+      "operation": "add_ip_to_allow_list",
+      "title": "Add IP Address to Allow List",
+      "description": "Adds an IP address to the allow list for the specified site and corporation.",
+      "category": "investigation",
+      "annotation": "add_ip_to_allow_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name whose site's allow list is to have the IP address added.",
+          "tooltip": "Specify the corporation name whose site's allow list is to have the IP address added.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name whose allow list is to have the IP address added.",
+          "tooltip": "Specify the site name whose allow list is to have the IP address added.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "IP Address",
+          "type": "text",
+          "name": "source",
+          "description": "Specify the IP address to be added to the site's allow list.",
+          "tooltip": "Specify the IP address to be added to the site's allow list.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Note",
+          "type": "text",
+          "name": "note",
+          "description": "(Optional) Specify the note associated with the IP address being added to the allow list. Use this to provide additional context or information.",
+          "tooltip": "Specify the note associated with the IP address being added to the allow list. Use this to provide additional context or information.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Expiry Date",
+          "type": "datetime",
+          "name": "expires",
+          "description": "(Optional) Specify the datetime when the allow list entry should expire. Omit this field if the entry should not expire.",
+          "tooltip": "Specify the datetime when the allow list entry should expire. Omit this field if the entry should not expire.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "source": "",
+        "expires": "",
+        "note": "",
+        "createdBy": "",
+        "created": ""
+      }
+    },
+    {
+      "operation": "remove_ip_from_allow_list",
+      "title": "Remove IP Address from Allow List",
+      "description": "Removes an IP address from the allow list for the specified site and corporation using the IP address ID.",
+      "category": "investigation",
+      "annotation": "remove_ip_from_allow_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name whose site's allow list is to be updated.",
+          "tooltip": "Specify the corporation name whose site's allow list is to be updated.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name whose allow list is to be updated.",
+          "tooltip": "Specify the site name whose allow list is to be updated.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "IP Address ID",
+          "type": "text",
+          "name": "id",
+          "description": "Specify the unique ID of the IP address to be removed from the site's allow list.",
+          "tooltip": "Specify the unique ID of the IP address to be removed from the site's allow list.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "message": ""
+      }
+    },
+    {
+      "operation": "get_site_block_list",
+      "title": "Get Site Block List",
+      "description": "Retrieves the block list of IP addresses for the specified site and corporation.",
+      "category": "investigation",
+      "annotation": "get_site_block_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name whose site's block list is to be retrieved.",
+          "tooltip": "Specify the corporation name whose site's block list is to be retrieved.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name whose block list is to be retrieved.",
+          "tooltip": "Specify the site name whose block list is to be retrieved.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "data": [
+          {
+            "id": "",
+            "source": "",
+            "expires": "",
+            "note": "",
+            "createdBy": "",
+            "created": ""
+          }
+        ]
+      }
+    },
+    {
+      "operation": "add_ip_to_block_list",
+      "title": "Add IP Address to Block List",
+      "description": "Adds an IP address to the site's block list for the specified corporation.",
+      "category": "investigation",
+      "annotation": "add_ip_to_block_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name whose site's block list is to have the IP address added.",
+          "tooltip": "Specify the corporation name whose site's block list is to have the IP address added.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name whose block list is to have the IP address added.",
+          "tooltip": "Specify the site name whose block list is to have the IP address added.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "IP Address",
+          "type": "text",
+          "name": "source",
+          "description": "Specify the IP address to be added to the site\u2019s block list.",
+          "tooltip": "Specify the IP address to be added to the site\u2019s block list.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Note",
+          "type": "text",
+          "name": "note",
+          "description": "(Optional) Specify the note associated with the IP address being added to the block list. Use this to provide additional context or information.",
+          "tooltip": "Specify the note associated with the IP address being added to the block list. Use this to provide additional context or information.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Expiry Date",
+          "type": "datetime",
+          "name": "expires",
+          "description": "(Optional) Specify the datetime when the block list entry should expire. Omit this field if the entry should not expire.",
+          "tooltip": "Specify the datetime when the block list entry should expire. Omit this field if the entry should not expire.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "source": "",
+        "expires": "",
+        "note": "",
+        "createdBy": "",
+        "created": ""
+      }
+    },
+    {
+      "operation": "remove_ip_from_block_list",
+      "title": "Remove IP Address from Block List",
+      "description": "Removes an IP address from the block list for the specified site and corporation using the IP address ID.",
+      "category": "investigation",
+      "annotation": "remove_ip_from_block_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name whose site's block list is to be updated.",
+          "tooltip": "Specify the corporation name whose site's block list is to be updated.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name whose block list is to be updated.",
+          "tooltip": "Specify the site name whose block list is to be updated.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "IP Address ID",
+          "type": "text",
+          "name": "id",
+          "description": "Specify the unique ID of the IP address to be removed from the site's block list.",
+          "tooltip": "Specify the unique ID of the IP address to be removed from the site's block list.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "message": ""
+      }
+    },
+    {
+      "operation": "get_all_site_lists",
+      "title": "Get All Site Lists",
+      "description": "Retrieves both the allow lists and block lists of IP addresses for the specified site within the specified corporation.",
+      "category": "investigation",
+      "annotation": "get_all_site_lists",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name whose site's allow and block lists are to be retrieved.",
+          "tooltip": "Specify the corporation name whose site's allow and block lists are to be retrieved.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name whose allow and block lists are to be retrieved.",
+          "tooltip": "Specify the site name whose allow and block lists are to be retrieved.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "data": [
+          {
+            "id": "",
+            "name": "",
+            "type": "",
+            "description": "",
+            "entries": [],
+            "createdBy": "",
+            "created": "",
+            "updated": ""
+          }
+        ]
+      }
+    },
+    {
+      "operation": "get_site_list_by_id",
+      "title": "Get Site List Details",
+      "description": "Retrieves the details of a site's list based on the specified List ID.",
+      "category": "investigation",
+      "annotation": "get_site_list_by_id",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name whose site list is to be retrieved.",
+          "tooltip": "Specify the corporation name whose site list is to be retrieved.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name whose list is to be retrieved.",
+          "tooltip": "Specify the site name whose list is to be retrieved.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "List ID",
+          "type": "text",
+          "name": "id",
+          "description": "Specify the List ID of the site\u2019s list to be retrieved.",
+          "tooltip": "Specify the List ID of the site\u2019s list to be retrieved.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "name": "",
+        "type": "",
+        "description": "",
+        "entries": [],
+        "createdBy": "",
+        "created": "",
+        "updated": ""
+      }
+    },
+    {
+      "operation": "list_sites_in_corp",
+      "title": "List Sites in Corporation",
+      "description": "Retrieves a list of sites within the specified corporation.",
+      "category": "investigation",
+      "annotation": "list_sites_in_corp",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation shortname whose sites are to be listed.",
+          "tooltip": "Specify the corporation shortname whose sites are to be listed.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "name",
+          "description": "(Optional) Specify a filter on site name or display name.",
+          "tooltip": "Specify a filter on site name or display name.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Agent Level",
+          "type": "select",
+          "name": "agent_level",
+          "description": "(Optional) Select a filter on agent mode. You can choose from Off, Log and Block.",
+          "tooltip": "Select a filter on agent mode.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "options": [
+            "Off",
+            "Log",
+            "Block"
+          ]
+        },
+        {
+          "title": "Page",
+          "type": "integer",
+          "name": "page",
+          "description": "(Optional) Specify the page of the results to retrieve. Default is 1.",
+          "tooltip": "Specify the page of the results to retrieve.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Limit",
+          "type": "integer",
+          "name": "limit",
+          "description": "(Optional) Specify the number of entries to be returned. Default is 10.",
+          "tooltip": "Specify the number of entries to be returned.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "data": [
+          {
+            "name": "",
+            "displayName": "",
+            "agentLevel": "",
+            "blockHTTPCode": "",
+            "blockDurationSeconds": "",
+            "created": "",
+            "whitelist": {
+              "uri": ""
+            },
+            "blacklist": {
+              "uri": ""
+            },
+            "events": {
+              "uri": ""
+            },
+            "requests": {
+              "uri": ""
+            },
+            "redactions": {
+              "uri": ""
+            },
+            "suspiciousIPs": {
+              "uri": ""
+            },
+            "monitors": {
+              "uri": ""
+            },
+            "integrations": {
+              "uri": ""
+            },
+            "headerLinks": {
+              "uri": ""
+            },
+            "agents": {
+              "uri": ""
+            },
+            "alerts": {
+              "uri": ""
+            },
+            "analyticsEvents": {
+              "uri": ""
+            },
+            "topAttacks": {
+              "uri": ""
+            },
+            "members": {
+              "uri": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "operation": "list_corps",
+      "title": "List Corporations",
+      "description": "Retrieves a list of corporations.",
+      "category": "investigation",
+      "annotation": "list_corps",
+      "enabled": true,
+      "parameters": [],
+      "output_schema": {
+        "data": [
+          {
+            "name": "",
+            "displayName": "",
+            "smallIconURI": "",
+            "created": "",
+            "siteLimit": "",
+            "sites": {
+              "uri": ""
+            },
+            "authType": "",
+            "sessionMaxAgeDashboard": ""
+          }
+        ]
+      }
+    },
+    {
+      "operation": "list_alerts",
+      "title": "List Alerts",
+      "description": "Retrieves a list of alerts for the specified site within the specified corporation.",
+      "category": "investigation",
+      "annotation": "list_alerts",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name whose site's alerts are to be listed.",
+          "tooltip": "Specify the corporation name whose site's alerts are to be listed.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name whose alerts are to be listed.",
+          "tooltip": "Specify the site name whose alerts are to be listed.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "data": [
+          {
+            "id": "",
+            "tagName": "",
+            "longName": "",
+            "type": "",
+            "interval": "",
+            "threshold": "",
+            "skipNotifications": "",
+            "enabled": "",
+            "action": "",
+            "fieldName": "",
+            "createdBy": "",
+            "created": "",
+            "updated": ""
+          }
+        ]
+      }
+    },
+    {
+      "operation": "get_alert_details",
+      "title": "Get Alert Details",
+      "description": "Retrieves detailed information about a specific alert for the specified site within the specified corporation.",
+      "category": "investigation",
+      "annotation": "get_alert_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name whose site's alert details are to be retrieved.",
+          "tooltip": "Specify the corporation name whose site's alert details are to be retrieved.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name whose alert details are to be retrieved.",
+          "tooltip": "Specify the site name whose alert details are to be retrieved.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Alert ID",
+          "type": "text",
+          "name": "id",
+          "description": "Specify the ID of the alert to retrieve details for.",
+          "tooltip": "Specify the ID of the alert to retrieve details for.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "tagName": "",
+        "longName": "",
+        "type": "",
+        "interval": "",
+        "threshold": "",
+        "skipNotifications": "",
+        "enabled": "",
+        "action": "",
+        "fieldName": "",
+        "createdBy": "",
+        "created": "",
+        "updated": ""
+      }
+    },
+    {
+      "operation": "update_alert",
+      "title": "Update Alert",
+      "description": "Updates an alert for the specified site within the specified corporation.",
+      "category": "investigation",
+      "annotation": "update_alert",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name whose site's alert is to be updated.",
+          "tooltip": "Specify the corporation name whose site's alert is to be updated.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name whose alert is to be updated.",
+          "tooltip": "Specify the site name whose alert is to be updated.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Alert ID",
+          "type": "text",
+          "name": "id",
+          "description": "Specify the ID of the alert to be updated.",
+          "tooltip": "Specify the ID of the alert to be updated.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Long Name",
+          "type": "text",
+          "name": "long_name",
+          "description": "(Optional) Specify a human readable description of the alert. Must be between 3 and 25 characters.",
+          "tooltip": "Specify a human readable description of the alert.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Tag Name",
+          "type": "text",
+          "name": "tag_name",
+          "description": "(Optional) Specify the name of the tag whose occurrences the alert is watching. Must match an existing tag.",
+          "tooltip": "Specify the name of the tag whose occurrences the alert is watching.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Interval",
+          "type": "integer",
+          "name": "interval",
+          "description": "(Optional) Specify the number of minutes of past traffic to examine. Must be 1, 10, or 60.",
+          "tooltip": "Specify the number of minutes of past traffic to examine.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Threshold",
+          "type": "integer",
+          "name": "threshold",
+          "description": "(Optional) Specify the number of occurrences of the tag in the interval needed to trigger the alert. Must be between 1 and 10000.",
+          "tooltip": "Specify the number of occurrences of the tag in the interval needed to trigger the alert.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Block Duration Seconds",
+          "type": "integer",
+          "name": "block_duration_seconds",
+          "description": "(Optional) Specify the number of seconds this alert is active.",
+          "tooltip": "Specify the number of seconds this alert is active.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Enabled",
+          "type": "select",
+          "name": "enabled",
+          "description": "(Optional) Specify a flag to toggle this alert.",
+          "tooltip": "Specify a flag to toggle this alert.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "options": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "Action",
+          "type": "select",
+          "name": "action",
+          "description": "(Optional) Specify what happens when the alert is triggered.",
+          "tooltip": "Specify what happens when the alert is triggered.",
+          "options": [
+            "Info",
+            "Flagged"
+          ],
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "siteId": "",
+        "tagName": "",
+        "interval": "",
+        "threshold": "",
+        "enabled": "",
+        "action": "",
+        "created": ""
+      }
+    },
+    {
+      "operation": "list_events",
+      "title": "List Events",
+      "description": "Retrieves a list of events for the specified site within the specified corporation.",
+      "category": "investigation",
+      "annotation": "list_events",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name whose site's events are to be listed.",
+          "tooltip": "Specify the corporation name whose site's events are to be listed.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name whose events are to be listed.",
+          "tooltip": "Specify the site name whose events are to be listed.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Status",
+          "type": "select",
+          "name": "status",
+          "description": "(Optional) Specify a filter based on status. You can choose from Active and Expired.",
+          "tooltip": "Specify a filter based on status. ",
+          "options": [
+            "Active",
+            "Expired"
+          ],
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Action",
+          "type": "select",
+          "name": "action",
+          "description": "(Optional) Specify a filter based on action. You can choose from are Flagged and Info.",
+          "tooltip": "Specify a filter based on action.",
+          "options": [
+            "Flagged",
+            "Info"
+          ],
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "IP",
+          "type": "text",
+          "name": "ip",
+          "description": "(Optional) Specify a filter based on IP address. Minimum length is 7 characters, maximum length is 15 characters.",
+          "tooltip": "Specify a filter based on IP address. Minimum length is 7 characters, maximum length is 15 characters.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Tag",
+          "type": "text",
+          "name": "tag",
+          "description": "(Optional) Specify a filter based on a tag. Minimum length is 3 characters, matching the pattern [a-zA-Z0-9_-]+.",
+          "tooltip": "Specify a filter based on a tag. Minimum length is 3 characters, matching the pattern [a-zA-Z0-9_-]+.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Since ID",
+          "type": "text",
+          "name": "since_id",
+          "description": "(Optional) Specify the ID of the last object in the set to retrieve events created after this ID.",
+          "tooltip": "Specify the ID of the last object in the set to retrieve events created after this ID.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Max ID",
+          "type": "text",
+          "name": "max_id",
+          "description": "(Optional) Specify the ID of the last object in the set to retrieve events created before this ID.",
+          "tooltip": "Specify the ID of the last object in the set to retrieve events created before this ID.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Start Time",
+          "type": "datetime",
+          "name": "from",
+          "description": "(Optional) Specify the time to retrieve events created after the specified datetime.",
+          "tooltip": "Specify the time to retrieve events created after the specified datetime.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "End Time",
+          "type": "datetime",
+          "name": "until",
+          "description": "(Optional) Specify the time to retrieve events created before the specified datetime.",
+          "tooltip": "Specify the time to retrieve events created before the specified datetime.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Sort",
+          "type": "select",
+          "name": "sort",
+          "description": "(Optional) Specify the order to retrieve events, either Asc or Desc.",
+          "tooltip": "The sort order.",
+          "options": [
+            "Asc",
+            "Desc"
+          ],
+          "value": "Desc",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Page",
+          "type": "integer",
+          "name": "page",
+          "description": "(Optional) Specify the page of the results to be retrieved. Each page is limited to 1,000 requests, with a maximum of 10,000 requests in total.",
+          "tooltip": "Specify the page of the results to be retrieved. Each page is limited to 1,000 requests, with a maximum of 10,000 requests in total.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Limit",
+          "type": "integer",
+          "name": "limit",
+          "description": "(Optional) Specify the number of entries to be returned per page. Default is 100, with a maximum of 1000.",
+          "tooltip": "Specify the number of entries to be returned per page. Default is 100, with a maximum of 1000.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "totalCount": "",
+        "next": {
+          "uri": ""
+        },
+        "data": [
+          {
+            "id": "",
+            "timestamp": "",
+            "source": "",
+            "remoteCountryCode": "",
+            "remoteHostname": "",
+            "userAgents": [],
+            "action": "",
+            "type": "",
+            "reasons": {
+              "SQLI": ""
+            },
+            "requestCount": "",
+            "tagCount": "",
+            "window": "",
+            "expires": "",
+            "expiredBy": ""
+          }
+        ]
+      }
+    },
+    {
+      "operation": "get_event_details",
+      "title": "Get Event Details",
+      "description": "Retrieves detailed information about a specific event for the specified site within the specified corporation.",
+      "category": "investigation",
+      "annotation": "get_event_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name where the event occurred.",
+          "tooltip": "Specify the corporation name where the event occurred.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name where the event occurred.",
+          "tooltip": "Specify the site name where the event occurred.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Event ID",
+          "type": "text",
+          "name": "id",
+          "description": "Specify the unique ID of the event to retrieve details for.",
+          "tooltip": "Specify the unique ID of the event to retrieve details for.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "timestamp": "",
+        "source": "",
+        "remoteCountryCode": "",
+        "remoteHostname": "",
+        "userAgents": [],
+        "action": "",
+        "type": "",
+        "reasons": {
+          "SQLI": ""
+        },
+        "requestCount": "",
+        "tagCount": "",
+        "window": "",
+        "expires": "",
+        "expiredBy": ""
+      }
+    },
+    {
+      "operation": "expire_event_by_id",
+      "title": "Expire Event By ID",
+      "description": "Marks a specific event as expired based on the provided event ID for the specified site within the specified corporation.",
+      "category": "management",
+      "annotation": "expire_event_by_id",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Corporation Name",
+          "type": "text",
+          "name": "corporation",
+          "description": "Specify the corporation name where the event is located.",
+          "tooltip": "Specify the corporation name where the event is located.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Site Name",
+          "type": "text",
+          "name": "site_name",
+          "description": "Specify the site name where the event is located.",
+          "tooltip": "Specify the site name where the event is located.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Event ID",
+          "type": "text",
+          "name": "id",
+          "description": "Specify the unique ID of the event to mark as expired.",
+          "tooltip": "Specify the unique ID of the event to mark as expired.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "timestamp": "",
+        "source": "",
+        "remoteCountryCode": "",
+        "remoteHostname": "",
+        "userAgents": [],
+        "action": "",
+        "type": "",
+        "reasons": {
+          "SQLI": ""
+        },
+        "requestCount": "",
+        "tagCount": "",
+        "window": "",
+        "expires": "",
+        "expiredBy": ""
+      }
+    }
+  ]
+}

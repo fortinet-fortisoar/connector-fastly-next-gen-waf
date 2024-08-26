@@ -1,0 +1,1185 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "f1bc3230-5d5c-4a15-a076-dd92901666a0",
+      "@type": "WorkflowCollection",
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "39211da6-5c4a-4d62-b2c8-2c8067036587",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "7f296a32-a945-4c7a-8b13-0d2c5d20e5d7",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "df66d4d4-675e-479e-9de6-c493cea3c142",
+              "@type": "WorkflowStep",
+              "name": "Get Site Allow List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "get_site_allow_list",
+                "operationTitle": "Get Site Allow List"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves the allow list of IP addresses for the specified site and corporation.",
+          "name": "Get Site Allow List",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7f296a32-a945-4c7a-8b13-0d2c5d20e5d7",
+          "routes": [
+            {
+              "uuid": "f2b99c62-61fb-4dde-86e0-08865aaa2c07",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Site Allow List",
+              "sourceStep": "/api/3/workflow_steps/7f296a32-a945-4c7a-8b13-0d2c5d20e5d7",
+              "targetStep": "/api/3/workflow_steps/df66d4d4-675e-479e-9de6-c493cea3c142"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "39229ca7-47bf-420d-b242-0478859acde5",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "619d93df-6761-4dad-9ea1-cb5884adee8a",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "a75f0529-1537-4c09-a2cb-e8bbda0f64da",
+              "@type": "WorkflowStep",
+              "name": "Add IP Address to Allow List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": "",
+                  "source": "",
+                  "note": "",
+                  "expires": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "add_ip_to_allow_list",
+                "operationTitle": "Add IP Address to Allow List"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Adds an IP address to the allow list for the specified site and corporation.",
+          "name": "Add IP Address to Allow List",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/619d93df-6761-4dad-9ea1-cb5884adee8a",
+          "routes": [
+            {
+              "uuid": "5e8544a3-a263-4b1e-8d25-13e8eee0718d",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Add IP Address to Allow List",
+              "sourceStep": "/api/3/workflow_steps/619d93df-6761-4dad-9ea1-cb5884adee8a",
+              "targetStep": "/api/3/workflow_steps/a75f0529-1537-4c09-a2cb-e8bbda0f64da"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "d229c91d-c360-409f-910b-b21766aff1de",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "acca3e76-9447-4e2d-ad3e-3887a02838d5",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "3801d8f1-e72b-41fc-b437-1215b0eb5187",
+              "@type": "WorkflowStep",
+              "name": "Remove IP Address from Allow List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": "",
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "remove_ip_from_allow_list",
+                "operationTitle": "Remove IP Address from Allow List"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Removes an IP address from the allow list for the specified site and corporation using the IP address ID.",
+          "name": "Remove IP Address from Allow List",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/acca3e76-9447-4e2d-ad3e-3887a02838d5",
+          "routes": [
+            {
+              "uuid": "bc158500-8c7f-4002-9a3f-b16a7620c654",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Remove IP Address from Allow List",
+              "sourceStep": "/api/3/workflow_steps/acca3e76-9447-4e2d-ad3e-3887a02838d5",
+              "targetStep": "/api/3/workflow_steps/3801d8f1-e72b-41fc-b437-1215b0eb5187"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "74fbdbad-057d-420e-a4ef-6cdd1a7e1587",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "6754d859-be9d-4313-aa11-b2eb14685a7e",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "26e9364d-4c13-4011-96e7-6e7c7f230d6b",
+              "@type": "WorkflowStep",
+              "name": "Get Site Block List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "get_site_block_list",
+                "operationTitle": "Get Site Block List"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves the block list of IP addresses for the specified site and corporation.",
+          "name": "Get Site Block List",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6754d859-be9d-4313-aa11-b2eb14685a7e",
+          "routes": [
+            {
+              "uuid": "ba791ae7-709b-4aab-9b76-fede3e706432",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Site Block List",
+              "sourceStep": "/api/3/workflow_steps/6754d859-be9d-4313-aa11-b2eb14685a7e",
+              "targetStep": "/api/3/workflow_steps/26e9364d-4c13-4011-96e7-6e7c7f230d6b"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "4470b60e-6ee8-4d9d-b7e5-1b8033ecebe4",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "275b898a-f4ca-49dd-847d-ebc41df40380",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "42915e11-1027-4d0d-824a-6e158ebaa708",
+              "@type": "WorkflowStep",
+              "name": "Add IP Address to Block List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": "",
+                  "source": "",
+                  "note": "",
+                  "expires": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "add_ip_to_block_list",
+                "operationTitle": "Add IP Address to Block List"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Adds an IP address to the site's block list for the specified corporation.",
+          "name": "Add IP Address to Block List",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/275b898a-f4ca-49dd-847d-ebc41df40380",
+          "routes": [
+            {
+              "uuid": "1ca6cde3-cf2e-4770-8239-78d802156215",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Add IP Address to Block List",
+              "sourceStep": "/api/3/workflow_steps/275b898a-f4ca-49dd-847d-ebc41df40380",
+              "targetStep": "/api/3/workflow_steps/42915e11-1027-4d0d-824a-6e158ebaa708"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "ede84b4f-5d8a-46e5-9469-0c9ba40587cf",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "1e6895e7-37e3-4976-aaca-ccc43d84a32d",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "b879b30a-05ee-40b3-9132-53c1f19aaf12",
+              "@type": "WorkflowStep",
+              "name": "Remove IP Address from Block List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": "",
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "remove_ip_from_block_list",
+                "operationTitle": "Remove IP Address from Block List"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Removes an IP address from the block list for the specified site and corporation using the IP address ID.",
+          "name": "Remove IP Address from Block List",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/1e6895e7-37e3-4976-aaca-ccc43d84a32d",
+          "routes": [
+            {
+              "uuid": "968b0f10-4e07-4b13-9e91-20ca8b64861a",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Remove IP Address from Block List",
+              "sourceStep": "/api/3/workflow_steps/1e6895e7-37e3-4976-aaca-ccc43d84a32d",
+              "targetStep": "/api/3/workflow_steps/b879b30a-05ee-40b3-9132-53c1f19aaf12"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "cd3089bc-6b9e-424f-b61d-c702c049d37f",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "1dcf953e-ad58-4354-a202-729532ca4194",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "131c59e7-8303-49d5-b7cd-f15f145fced1",
+              "@type": "WorkflowStep",
+              "name": "Get All Site Lists",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "get_all_site_lists",
+                "operationTitle": "Get All Site Lists"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves both the allow lists and block lists of IP addresses for the specified site within the specified corporation.",
+          "name": "Get All Site Lists",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/1dcf953e-ad58-4354-a202-729532ca4194",
+          "routes": [
+            {
+              "uuid": "248650ec-a061-4ede-b2ea-dc120c4edb04",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Site Lists",
+              "sourceStep": "/api/3/workflow_steps/1dcf953e-ad58-4354-a202-729532ca4194",
+              "targetStep": "/api/3/workflow_steps/131c59e7-8303-49d5-b7cd-f15f145fced1"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "dfb1fc08-d8af-42bf-b869-4bccd6e7c79b",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "6e363e46-da0f-4e24-8482-594ddb5357d1",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "cd141075-1068-46e8-b8af-3ea465c122f4",
+              "@type": "WorkflowStep",
+              "name": "Get Site List Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": "",
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "get_site_list_by_id",
+                "operationTitle": "Get Site List Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves the details of a site's list based on the specified List ID.",
+          "name": "Get Site List Details",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6e363e46-da0f-4e24-8482-594ddb5357d1",
+          "routes": [
+            {
+              "uuid": "e313a3bb-70c6-4f8a-8144-5dcbc6e7d9ae",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Site List Details",
+              "sourceStep": "/api/3/workflow_steps/6e363e46-da0f-4e24-8482-594ddb5357d1",
+              "targetStep": "/api/3/workflow_steps/cd141075-1068-46e8-b8af-3ea465c122f4"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "3a245d87-8a33-450a-a5ea-15ef0c67cc38",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "c94a926c-746e-4aae-9c64-5033ca70320a",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "b0dd4f04-ece5-4571-95b2-c06dcb7dfc56",
+              "@type": "WorkflowStep",
+              "name": "List Sites in Corporation",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "name": "",
+                  "agent_level": "",
+                  "page": "",
+                  "limit": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "list_sites_in_corp",
+                "operationTitle": "List Sites in Corporation"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves a list of sites within the specified corporation.",
+          "name": "List Sites in Corporation",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/c94a926c-746e-4aae-9c64-5033ca70320a",
+          "routes": [
+            {
+              "uuid": "ca6d7f5b-baf2-416a-a3ee-a1dc22eafcf7",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> List Sites in Corporation",
+              "sourceStep": "/api/3/workflow_steps/c94a926c-746e-4aae-9c64-5033ca70320a",
+              "targetStep": "/api/3/workflow_steps/b0dd4f04-ece5-4571-95b2-c06dcb7dfc56"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "3f1d5e9a-d89e-4e77-b7b9-259f6e6257a0",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "1ef5921f-24aa-4561-9d08-a31c383ffb29",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "cbc1e2b7-b567-430c-8a72-c578a1bf8fbe",
+              "@type": "WorkflowStep",
+              "name": "List Corporations",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "list_corps",
+                "operationTitle": "List Corporations"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves a list of corporations.",
+          "name": "List Corporations",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/1ef5921f-24aa-4561-9d08-a31c383ffb29",
+          "routes": [
+            {
+              "uuid": "1e199ff2-9748-4b6b-b1c9-a79e4670cf3e",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> List Corporations",
+              "sourceStep": "/api/3/workflow_steps/1ef5921f-24aa-4561-9d08-a31c383ffb29",
+              "targetStep": "/api/3/workflow_steps/cbc1e2b7-b567-430c-8a72-c578a1bf8fbe"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "7d2b0948-ff4a-4fc1-a6cf-38cc526dbb1e",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "a63efc40-24b8-4521-b977-236ad70c54e5",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "ba020b38-c6f5-4fab-a200-f0f552be139c",
+              "@type": "WorkflowStep",
+              "name": "List Alerts",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "list_alerts",
+                "operationTitle": "List Alerts"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves a list of alerts for the specified site within the specified corporation.",
+          "name": "List Alerts",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/a63efc40-24b8-4521-b977-236ad70c54e5",
+          "routes": [
+            {
+              "uuid": "1692f451-08a1-407b-9538-90e5437f5104",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> List Alerts",
+              "sourceStep": "/api/3/workflow_steps/a63efc40-24b8-4521-b977-236ad70c54e5",
+              "targetStep": "/api/3/workflow_steps/ba020b38-c6f5-4fab-a200-f0f552be139c"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "ef1782d8-136f-4d31-862c-5ad874007a86",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "d7ee0185-567e-4ce8-adfe-8a05779f930e",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "e836dc4b-8a38-45de-a433-28e2197133dc",
+              "@type": "WorkflowStep",
+              "name": "Get Alert Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": "",
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "get_alert_details",
+                "operationTitle": "Get Alert Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves detailed information about a specific alert for the specified site within the specified corporation.",
+          "name": "Get Alert Details",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/d7ee0185-567e-4ce8-adfe-8a05779f930e",
+          "routes": [
+            {
+              "uuid": "e79e7d5e-8a13-481c-8281-cc6f8b42844e",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Alert Details",
+              "sourceStep": "/api/3/workflow_steps/d7ee0185-567e-4ce8-adfe-8a05779f930e",
+              "targetStep": "/api/3/workflow_steps/e836dc4b-8a38-45de-a433-28e2197133dc"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "991c79d9-330a-4d07-92ab-7031f4ec306d",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "7529d789-5456-4da3-97c8-c55aafee5f26",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "1b595441-6ce6-4847-b6e5-15f7dfb648b8",
+              "@type": "WorkflowStep",
+              "name": "Update Alert",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": "",
+                  "id": "",
+                  "long_name": "",
+                  "tag_name": "",
+                  "interval": "",
+                  "threshold": "",
+                  "block_duration_seconds": "",
+                  "enabled": "",
+                  "action": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "update_alert",
+                "operationTitle": "Update Alert"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Updates an alert for the specified site within the specified corporation.",
+          "name": "Update Alert",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7529d789-5456-4da3-97c8-c55aafee5f26",
+          "routes": [
+            {
+              "uuid": "8aeb9d6d-9fee-4609-839b-f818d01df7d0",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Update Alert",
+              "sourceStep": "/api/3/workflow_steps/7529d789-5456-4da3-97c8-c55aafee5f26",
+              "targetStep": "/api/3/workflow_steps/1b595441-6ce6-4847-b6e5-15f7dfb648b8"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "7dbf7560-fc9a-4419-9f80-c77fb1a619a1",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "7cc55f10-8af3-4767-b33b-5119c0b7b5be",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "1755584c-641f-43f8-9c35-0fbb319d4d5b",
+              "@type": "WorkflowStep",
+              "name": "List Events",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": "",
+                  "status": "",
+                  "action": "",
+                  "ip": "",
+                  "tag": "",
+                  "since_id": "",
+                  "max_id": "",
+                  "from": "",
+                  "until": "",
+                  "sort": "Desc",
+                  "page": "",
+                  "limit": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "list_events",
+                "operationTitle": "List Events"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves a list of events for the specified site within the specified corporation.",
+          "name": "List Events",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7cc55f10-8af3-4767-b33b-5119c0b7b5be",
+          "routes": [
+            {
+              "uuid": "4d296e2e-301d-428e-b893-39f8177bd3e4",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> List Events",
+              "sourceStep": "/api/3/workflow_steps/7cc55f10-8af3-4767-b33b-5119c0b7b5be",
+              "targetStep": "/api/3/workflow_steps/1755584c-641f-43f8-9c35-0fbb319d4d5b"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "5bb00fba-9cde-4af6-be25-89df764ddf49",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "ff1f5c52-abaf-4472-bef5-7a8a96659a13",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "93d8eeee-3452-4fad-9af7-c5fdfce6894f",
+              "@type": "WorkflowStep",
+              "name": "Get Event Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": "",
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "get_event_details",
+                "operationTitle": "Get Event Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves detailed information about a specific event for the specified site within the specified corporation.",
+          "name": "Get Event Details",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/ff1f5c52-abaf-4472-bef5-7a8a96659a13",
+          "routes": [
+            {
+              "uuid": "123e6880-1a1c-4758-8fe7-44eae79ae4b5",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Event Details",
+              "sourceStep": "/api/3/workflow_steps/ff1f5c52-abaf-4472-bef5-7a8a96659a13",
+              "targetStep": "/api/3/workflow_steps/93d8eeee-3452-4fad-9af7-c5fdfce6894f"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "44ca7052-2e10-4677-93cb-eab94f416557",
+          "collection": "/api/3/workflow_collections/f1bc3230-5d5c-4a15-a076-dd92901666a0",
+          "steps": [
+            {
+              "uuid": "df50654b-49fc-4f81-8c94-36c432759f0b",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "6d939741-a87d-4817-b118-d004fe5624bb",
+              "@type": "WorkflowStep",
+              "name": "Expire Event By ID",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fastly Next-Gen WAF",
+                "config": "''",
+                "params": {
+                  "corporation": "",
+                  "site_name": "",
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "fastly-next-gen-waf",
+                "operation": "expire_event_by_id",
+                "operationTitle": "Expire Event By ID"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Marks a specific event as expired based on the provided event ID for the specified site within the specified corporation.",
+          "name": "Expire Event By ID",
+          "tag": "#Fastly Next-Gen WAF",
+          "recordTags": [
+            "Fastly",
+            "fastly-next-gen-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/df50654b-49fc-4f81-8c94-36c432759f0b",
+          "routes": [
+            {
+              "uuid": "e42bf87b-55ce-4934-b4b0-19ee2be836a0",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Expire Event By ID",
+              "sourceStep": "/api/3/workflow_steps/df50654b-49fc-4f81-8c94-36c432759f0b",
+              "targetStep": "/api/3/workflow_steps/6d939741-a87d-4817-b118-d004fe5624bb"
+            }
+          ]
+        }
+      ],
+      "name": "Sample - Fastly Next-Gen WAF - 1.0.0",
+      "description": "Fastly Next-Gen WAF provides advanced protection for web applications by enabling automated security measures, real-time monitoring, and rapid incident response to mitigate threats and vulnerabilities. It ensures robust defense against malicious activities by managing security policies, detecting threats, and enforcing rule sets to safeguard web applications effectively.",
+      "visible": true,
+      "recordTags": [
+        "Fastly",
+        "fastly-next-gen-waf"
+      ]
+    }
+  ]
+}
